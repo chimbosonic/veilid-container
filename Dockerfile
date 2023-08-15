@@ -19,7 +19,7 @@ RUN apt update -y && apt install -y tini && rm -rf /var/lib/apt/lists/*;
 
 EXPOSE 5150/tcp
 
-EXPOSE 5150/update
+EXPOSE 5150/udp
 
 EXPOSE 5959/tcp
 
