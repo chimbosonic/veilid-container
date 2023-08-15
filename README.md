@@ -6,7 +6,9 @@ This is a veilid OCI image built using https://gitlab.com/veilid/veilid.
 
 Base image is `apline:latest`.
 
-The image is available on Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/veilid)
+The image can be pulled from the following repositories:
+- Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/veilid)
+- Quay.io [here](https://quay.io/repository/chimbosonic/veilid)
 
 Source code and pipeline can be found [here](https://github.com/chimbosonic/veilid-container)
 
