@@ -35,7 +35,10 @@ You can access the `veilid-cli` inside the container with:
 podman exec -it <container-name> veilid-cli
 ```
 
-port `5959` has the client api exposed and port `5150` has the network listeners.
+### Ports
+
+- `5959/tcp` has the client api exposed (caution: do not expose that port to the internet its has no authentication and allows full control of the node) 
+- `5150/tcp` and `5150/udp` has the network listeners
 
 
 ### How to build
