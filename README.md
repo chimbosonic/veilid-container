@@ -6,11 +6,13 @@ This is a veilid OCI image built using https://gitlab.com/veilid/veilid.
 
 Base image is `apline:latest`.
 
+The image is available for both `arm64` and `amd64` tho I can only test `amd64`.
+
 The image can be pulled from the following repositories:
 - Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/veilid)
 - Quay.io [here](https://quay.io/repository/chimbosonic/veilid)
 
-Source code and pipeline can be found [here](https://github.com/chimbosonic/veilid-container)
+Source code and pipeline can be found [here](https://github.com/chimbosonic/veilid-container).
 
 ## Image Verification
 
@@ -36,7 +38,6 @@ podman exec -it <container-name> veilid-cli
 ```
 
 ### Ports
-
 - `5959/tcp` has the client api exposed (caution: do not expose that port to the internet its has no authentication and allows full control of the node) 
 - `5150/tcp` and `5150/udp` has the network listeners
 
@@ -52,4 +53,4 @@ make build
 # Notes
 I'm still figuring out how this is used and their docs aren't complete yet but this should be a fully functional server node of veilid.
 
-All credit to [Veilid team](https://veilid.com/about-us/) 
+All credit to [Veilid team](https://veilid.com/about-us/).

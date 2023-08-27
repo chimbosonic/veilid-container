@@ -18,6 +18,10 @@ force-build:
 	$(BUILD) --no-cache $(ARGS) .
 	$(TAGS)
 
+build-arm64:
+	$(BUILD) --no-cache $(ARGS) . --platform linux/arm64
+	$(TAGS)
+
 run:
 	@podman run -p 5959:5959 -p 5150:5150/udp -p 5150:5150/tcp -it --rm --name $(PROJECT) -t $(LATEST)
 

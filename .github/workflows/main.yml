@@ -17,4 +17,5 @@ jobs:
       image-author: Alexis Lowe <alexis.lowe@chimbosonic.com>
       image-description: Veilid P2P network node
       image-documentation: https://github.com/chimbosonic/veilid-container/blob/main/README.md
+      image-platforms: linux/amd64,linux/arm64
     secrets: inherit
