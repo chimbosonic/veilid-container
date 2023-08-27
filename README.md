@@ -6,7 +6,7 @@ This is a veilid OCI image built using https://gitlab.com/veilid/veilid.
 
 Base image is `fedora-minimal:latest`.
 
-The image is available for both `arm64` and `amd64` tho I can only test `amd64`.
+The image is available for `amd64`.
 
 The image can be pulled from the following repositories:
 - Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/veilid)
@@ -18,7 +18,8 @@ Source code and pipeline can be found [here](https://github.com/chimbosonic/veil
 
 The image is signed using [cosign](https://github.com/sigstore/cosign) from sigstore.
 
-You can verify the signature with:
+You can verify the signature with: tho I can only test `amd64`.
+
 
 ```bash
 cosign verify --key cosign.pub chimbosonic/veilid:latest
