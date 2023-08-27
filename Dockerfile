@@ -5,7 +5,7 @@ WORKDIR /opt
 RUN git clone --branch main --depth 1 --recurse-submodules https://gitlab.com/veilid/veilid.git;
 WORKDIR /opt/veilid
 
-RUN apt update -y && apt install -y checkinstall cmake build-essential capnproto && ./scripts/earthly/install_protoc.sh;
+RUN apt update -y && apt install -y checkinstall cmake build-essential capnproto protobuf-compiler
 RUN cd veilid-server && cargo build --release;
 RUN cd veilid-cli && cargo build --release;
 
