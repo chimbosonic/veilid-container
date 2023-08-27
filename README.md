@@ -4,7 +4,7 @@
 
 This is a veilid OCI image built using https://gitlab.com/veilid/veilid.
 
-Base image is `apline:latest`.
+Base image is `fedora-minimal:latest`.
 
 The image is available for both `arm64` and `amd64` tho I can only test `amd64`.
 
@@ -36,6 +36,8 @@ You can access the `veilid-cli` inside the container with:
 ```bash
 podman exec -it <container-name> veilid-cli
 ```
+
+You can mount `/etc/veilid-server` if you need to change the config of `veilid-server` and you can mount `/var/db/veilid-server` for persistence.
 
 ### Ports
 - `5959/tcp` has the client api exposed (caution: do not expose that port to the internet its has no authentication and allows full control of the node) 

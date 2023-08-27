@@ -1,21 +1,16 @@
-FROM library/rust:latest as builder
+FROM registry.fedoraproject.org/fedora-minimal:latest
 
-WORKDIR /opt
+COPY config/default-veilid-server.conf default-veilid-server.conf
+COPY config/veilid-rpm-repo.repo /etc/yum.repos.d/veilid-rpm-repo.repo
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 
-RUN git clone --branch main --depth 1 --recurse-submodules https://gitlab.com/veilid/veilid.git;
-WORKDIR /opt/veilid
+RUN chmod +x /usr/bin/entrypoint.sh \
+&& microdnf install -y veilid-server veilid-cli tini \
+&& microdnf clean all \
+&& rm -rf /etc/veilid-server/*
 
-RUN apt update -y && apt install -y checkinstall cmake build-essential capnproto protobuf-compiler
-RUN cd veilid-server && cargo build --release;
-RUN cd veilid-cli && cargo build --release;
-
-FROM library/rust:slim
-
-COPY --from=builder /opt/veilid/target/release/veilid-server /usr/bin/veilid-server
-COPY --from=builder /opt/veilid/target/release/veilid-cli /usr/bin/veilid-cli
-
-
-RUN apt update -y && apt install -y tini && rm -rf /var/lib/apt/lists/*;
+VOLUME /etc/veilid-server
+VOLUME /var/db/veilid-server
 
 EXPOSE 5150/tcp
 
@@ -23,4 +18,4 @@ EXPOSE 5150/udp
 
 EXPOSE 5959/tcp
 
-ENTRYPOINT ["/usr/bin/tini","--","veilid-server"]
+ENTRYPOINT ["/usr/bin/tini","--","/usr/bin/entrypoint.sh"]
