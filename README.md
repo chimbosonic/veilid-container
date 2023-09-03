@@ -57,3 +57,8 @@ make build
 I'm still figuring out how this is used and their docs aren't complete yet but this should be a fully functional server node of veilid.
 
 All credit to [Veilid team](https://veilid.com/about-us/).
+
+
+# Caution
+Due to issues upstream the binary rpm packages used to install veilid in the container are no longer signed.
+`gpg-check` has been disabled to produce a working container.
