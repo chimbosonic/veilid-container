@@ -2,7 +2,5 @@
 name=Veilid RPM Repo
 baseurl=https://packages.veilid.net/rpm
 enabled=1
-
-# Disable GPG check due to upstream not siginig packages see https://gitlab.com/veilid/veilid/-/issues/290
-gpgcheck=0
+gpgcheck=1
 gpgkey=https://packages.veilid.net/gpg/veilid-packages-key.public
